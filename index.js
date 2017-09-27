@@ -1,6 +1,5 @@
 const axios = require('axios')
 var exec = require('child_process').exec
-const token = "c82335363f89cee3d3f70d7ff77f970594b13054"
 
 function checkName(name) {
   var array = name.split("-")
@@ -13,7 +12,7 @@ function checkName(name) {
 }
 
 function createCommand(name) {
-  return `curl -X DELETE -H 'Authorization: token c82335363f89cee3d3f70d7ff77f970594b13054' https://api.github.com/repos/nkernis/${name}`
+  return `curl -X DELETE -H 'Authorization: token TOKEN_HERE' https://api.github.com/repos/USERNAME_HERE/${name}`
 }
 
 function puts(error, stdout, stderr) {
@@ -34,5 +33,5 @@ function cleanUp(data) {
   }
 }
 
-axios.get("https://api.github.com/users/nkernis/repos")
+axios.get("https://api.github.com/users/USERNAME_HERE/repos")
   .then(res => cleanUp(res.data))
