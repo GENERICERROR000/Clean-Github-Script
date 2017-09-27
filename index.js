@@ -1,5 +1,5 @@
 const axios = require('axios')
-var exec = require('child_process').exec
+const exec = require('child_process').exec
 
 function checkName(name) {
   var array = name.split("-")
@@ -25,7 +25,7 @@ function cleanUp(data) {
 
     if (checkName(name)) {
       let command = createCommand(name)
-      exec(command, puts);
+      exec(command, puts)
 
     } else {
       console.log("SAVED")
@@ -33,5 +33,9 @@ function cleanUp(data) {
   }
 }
 
-axios.get("https://api.github.com/users/USERNAME_HERE/repos")
+axios.get("https://api.github.com/users/USERNAME_HEREHERPD/repos")
   .then(res => cleanUp(res.data))
+
+// TODO:
+// ADD README
+// Its not perfect. You need to input your token once and username twice. ALSO - add “save-” to any repo you want to keep (or create an array of names of you want to keep and work that in). Will have to run a couple times in the terminal because it only does like 20 at a time. BUT - thats way easier than one at a time…
